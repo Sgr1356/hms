@@ -1,0 +1,65 @@
+{% extends 'nav-common.html' %}
+{% block body %}
+
+    <div class="container my-4">
+        <h4>Contact Us</h4>
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>First Name</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="First">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Last Name</label>
+                    <input type="password" class="form-control" id="inputPassword4" placeholder="Last">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Password</label>
+                    <input type="password" class="form-control" id="inputPassword4">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            </div>
+            <div class="form-group">
+                <label for="inputAddress2">Address 2</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputCity">City</label>
+                    <input type="text" class="form-control" id="inputCity" placeholder="Ex-Nagpur">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputState">State</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>...</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputZip">Zip</label>
+                    <input type="text" class="form-control" id="inputZip">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Sign in</button>
+
+        </form>
+    </div>
+    <hr class="featurette-divider">
+
+    <footer class="container my-5">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>© 2020-2021 Developer Station, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+        <p>Developer- <a href="#">Sagar Yadav </a></p>
+    </footer>
+
+{% endblock %}
