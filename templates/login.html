@@ -1,0 +1,38 @@
+{% extends 'nav-common.html' %}
+{% load static %}
+{% block body %}
+
+
+    {% ifequal error "no" %}
+    <script>
+        alert('logged in successfully');
+        window.location=('{% url 'home' %}')
+    </script>
+    {% endifequal %}
+
+    {% ifequal error "yes" %}
+    <script>
+        alert('Invalid login Credentials,Try Again');
+    </script>
+    {% endifequal %}
+
+
+<div class="container">
+        <form method="post">
+            {% csrf_token %}
+  <div class="form-group">
+    <label >Admin
+    <input type="text" class="form-control" name="uname">
+        </label>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password
+    <input type="password" class="form-control"  name="pwd">
+        </label>
+  </div>
+
+  <button type="submit" class="btn btn-primary" value="login">Submit</button>
+</form>
+    </div>
+
+{% endblock %}

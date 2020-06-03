@@ -20,8 +20,13 @@ from hms import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.home,name="home"),
-    path('contact/',views.contact,name="contact"),
 
-    path('signup/',views.signup,name="signup")
+    path('about/',views.about,name="about"),
+    path('',views.index,name="home"),
+    path('contact/',views.contact,name="contact"),
+    path('admin_login/',views.Login,name="login"),
+    path('logout/',views.logout_admin,name="logout")
+
+
+
 ]

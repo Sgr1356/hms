@@ -1,29 +1,44 @@
-from django.shortcuts import render,redirect
-from django.contrib import messages
-# from hms.models import docpatmodel
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+
+
 # Create your views here.
-def home(request):
-    return render(request,'home.html')
+
+
+def about(request):
+    return render(request, "about.html")
+
+
+def index(request):
+    if not request.user.is_staff:
+        return redirect('login')
+    return render(request, "index.html")
+
+
+def Login(request):
+    error = ""
+    if request.method == 'POST':
+        u = request.POST['uname']
+        p = request.POST['pwd']
+        user = authenticate(username=u, password=p)
+        try:
+            if user.is_staff:
+                login(request, user)
+                error = "no"
+            else:
+                error = "yes"
+        except:
+            error = "yes"
+    d = {'error': error}
+    return render(request,"login.html",d)
+
+
+def logout_admin(request):
+    if not request.user.is_staff:
+        return redirect('login')
+    logout(request)
+    return redirect('login')
 
 
 def contact(request):
     return render(request,"contact.html")
-
-# #for login check
-# def logincheck(request):
-#     email = request.POST.get("email")
-#     passwd = request.POST.get("password")
-#     ty="doctor"
-#     return None
-
-def signup(request):
-    n= request.POST.get("na")
-    last = request.POST.get("la")
-    cont = request.POST.get("c_n0")
-    email = request.POST.get("em")
-    passw = request.POST.get("ps")
-    dc_pt = request.POST.get("d1")
-    print(n,last,cont,email,passw,dc_pt)
-
-    # doctor=docpatmodel(name=n,lastname=last,contact=cont,emailid=email,password=passw,type=dc_pt)
-    return None

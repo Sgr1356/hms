@@ -1,17 +1,32 @@
+
 from django.db import models
 
-
 # Create your models here.
-class docpatmodel(models.Model):
+class doctormodel(models.Model):
     name = models.CharField(max_length=30)
     lastname = models.CharField(max_length=30)
-    emailid = models.EmailField(max_length=50)
     contact = models.IntegerField(unique=True)
-    username = models.CharField(max_length=30, unique=True)
-    password = models.CharField(max_length=30)
+    speciality = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
 
 
-class loginmodel(models.Model):
-    username = models.CharField(unique=True, max_length=30)
-    password = models.CharField(max_length=30)
-    type = models.CharField(max_length=30)
+class patientmodel(models.Model):
+    name = models.CharField(max_length=30)
+    lastname = models.CharField(max_length=30)
+    contact = models.IntegerField(unique=True)
+    address = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
+
+class appointmentmodel(models.Model):
+    doctor = models.ForeignKey(doctormodel, on_delete=models.CASCADE)
+    patient = models.ForeignKey(patientmodel, on_delete=models.CASCADE)
+    date1 = models.DateField()
+    time1 = models.TimeField()
+
+    def __str__(self):
+        return self.doctor.name + "--" + self.patient.name
