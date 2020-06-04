@@ -1,5 +1,5 @@
-
 from django.db import models
+
 
 # Create your models here.
 class doctormodel(models.Model):
@@ -15,6 +15,7 @@ class doctormodel(models.Model):
 class patientmodel(models.Model):
     name = models.CharField(max_length=30)
     lastname = models.CharField(max_length=30)
+    gender = models.CharField(max_length=10, default=False)
     contact = models.IntegerField(unique=True)
     address = models.CharField(max_length=200)
 

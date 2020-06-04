@@ -2,7 +2,6 @@
 {% load static %}
 {% block body %}
 
-
     {% ifequal error "no" %}
     <script>
         alert('logged in successfully');
@@ -18,11 +17,13 @@
 
 
 <div class="container">
+<h2 class="text-center">Admin Login</h2>
         <form method="post">
             {% csrf_token %}
+
   <div class="form-group">
     <label >Admin
-    <input type="text" class="form-control" name="uname">
+    <input type="text" class="form-control" name="uname" >
         </label>
   </div>
   <div class="form-group">

@@ -1,8 +1,21 @@
 {% extends 'nav-common.html' %}
 {% load static %}
-{% block body %}
+{% block css %}
+    .mydivstyle:hover{
+        box-shadow: 0 0 20px 0 rgba(0,0,0,0.6);
+        transform: translateY(-10px);
+    }
+    .container{
+        padding: 50px;
+        background: rgba(224,229,204,0.67);
+        border-radius: 20px;
+    }
 
-    <div class="container my-4">
+    {% endblock %}
+
+
+{% block body %}
+    <div class="container my-4 ">
         <h1 class="text-center">How You Can Reach..</h1>
         <br><br>
             <div class="row mt-5 text-center">

@@ -1,0 +1,39 @@
+{% extends 'nav-common.html' %}
+{% load static %}
+{% block body %}
+<div class="container">
+<h2 class="text-center">Add doctor</h2>
+        <form method="post">
+            {% csrf_token %}
+
+
+    <label >Doctor Name
+        <input type="text" class="form-control" name="name" required>
+    </label>
+    <label >Last Name
+        <input type="text" class="form-control" name="last" required>
+    </label>
+    <label >Contact
+        <input type="number" class="form-control"  name="contact" required>
+    </label>
+    <label >Speciality
+        <input type="text" class="form-control"  name="special" required>
+    </label>
+  <button type="submit" class="form-control btn btn-primary" value="submit">Submit</button>
+</form>
+    </div>
+
+    {% ifequal error "no" %}
+    <script>
+        alert('Record Saved successfully');
+        window.location=('{% url 'view_doctor' %}');
+    </script>
+    {% endifequal %}
+
+    {% ifequal error "yes" %}
+    <script>
+        alert('Something went Wrong,Try Again');
+    </script>
+    {% endifequal %}
+
+{% endblock %}
