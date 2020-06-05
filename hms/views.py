@@ -13,7 +13,21 @@ def about(request):
 def index(request):
     if not request.user.is_staff:
         return redirect('login')
-    return render(request, "index.html")
+    doctors =  doctormodel.objects.all()
+    patients =  patientmodel.objects.all()
+    appointments =  appointmentmodel.objects.all()
+
+    d = 0;
+    p = 0;
+    a = 0;
+    for i in doctors:
+        d+=1
+    for i in patients:
+        p+=1
+    for i in appointments:
+        a+=1
+    d1 = {'d':d,'p':p,'a':a}
+    return render(request, "index.html",d1)
 
 
 def Login(request):
@@ -134,7 +148,7 @@ def add_appointment(request):
         d1 = request.POST['date']
         t = request.POST['time']
         doctor = doctormodel.objects.filter(name=d).first()
-        patient = doctormodel.objects.filter(name=p).first()
+        patient = patientmodel.objects.filter(name=p).first()
 
         try:
             appointmentmodel.objects.create(doctor=doctor, patient=patient, date1=d1, time1=t)

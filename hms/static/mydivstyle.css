@@ -1,2 +1,19 @@
 
+.navbar-brand:hover{
+    color: greenyellow !important;
+    font-weight: bold;
+}
 
+.nav-item:hover{
+    font-weight: bold;
+}
+.mydivstyle:hover{
+        box-shadow: 0 0 20px 0 rgba(0,0,0,0.6);
+        transform: translateY(-10px);
+    }
+
+.rounded{
+    border-top: 8px solid lightseagreen ;
+    border-radius: 5px;
+
+}
