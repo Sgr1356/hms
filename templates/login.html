@@ -1,5 +1,10 @@
 {% extends 'nav-common.html' %}
 {% load static %}
+{% block css %}
+    .myclass{
+     text-align: center;
+    }
+{% endblock %}
 {% block body %}
 
     {% ifequal error "no" %}
@@ -16,24 +21,38 @@
     {% endifequal %}
 
 
-<div class="container">
-<h2 class="text-center">Admin Login</h2>
+<div class="container ">
+<div class="row">
+<div class="col-lg-8 col-md-8 col-sm-8">
+<h2 class="text-center p-5 display-2">Admin Login</h2>
         <form method="post">
             {% csrf_token %}
 
-  <div class="form-group">
-    <label >Admin
-    <input type="text" class="form-control" name="uname" >
+  <div class="form-group myclass" >
+        <label class="d-block ">Admin
+            <input type="text" class="form-control" name="uname" >
         </label>
   </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password
-    <input type="password" class="form-control"  name="pwd">
+  <div class="form-group myclass">
+        <label class="d-block ">Password
+            <input type="password" class="form-control"  name="pwd">
         </label>
   </div>
 
-  <button type="submit" class="btn btn-primary" value="login">Submit</button>
-</form>
+    <div class="text-center p-3">
+        <button type="submit" class="btn btn-primary" value="login">Submit</button>
     </div>
+</form>
+</div>
+    <div class="col-sm-4 col-md-4 col-lg-4 mt-5 responsive justify-content-center" >
+        <img src="{% static 'images/admin5.jpg' %}">
+    </div>
+</div>
+<div class="alert alert-info mt-4" role="alert">
+      This Login is for Administrator i.e for Receptionist You can check this Project by simpy login with
+        USERID : admin &&
+        PASSWORD : sagaryadav
+    </div>
+</div>
 
 {% endblock %}
