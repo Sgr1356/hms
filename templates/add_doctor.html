@@ -1,25 +1,33 @@
 {% extends 'nav-common.html' %}
 {% load static %}
 {% block body %}
-<div class="container">
-<h2 class="text-center">Add doctor</h2>
-        <form method="post">
+<div class="container text-center mt-5" >
+<h2 class="text-center p-4">Add Doctor</h2>
+        <form method="post" >
             {% csrf_token %}
 
-
+<div class="form-group">
     <label >Doctor Name
-        <input type="text" class="form-control" name="name" required>
+        <input type="text" class="form-control" name="name" required >
     </label>
+</div>
+<div class="form-group">
     <label >Last Name
         <input type="text" class="form-control" name="last" required>
     </label>
+</div>
+ <div class="form-group">
     <label >Contact
         <input type="number" class="form-control"  name="contact" required>
     </label>
+</div>
+<div class="form-group">
     <label >Speciality
         <input type="text" class="form-control"  name="special" required>
     </label>
-  <button type="submit" class="form-control btn btn-primary" value="submit">Submit</button>
+</div>
+
+<button type="submit" class="form-control btn btn-primary" value="submit">Submit</button>
 </form>
     </div>
 
